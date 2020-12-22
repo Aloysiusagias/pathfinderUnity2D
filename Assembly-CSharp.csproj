@@ -45,10 +45,13 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\camera.cs" />
-     <Compile Include="Assets\enemyMovement.cs" />
-     <Compile Include="Assets\menu.cs" />
-     <Compile Include="Assets\Movement.cs" />
+     <Compile Include="Assets\Script\Billboard.cs" />
+     <Compile Include="Assets\Script\camera.cs" />
+     <Compile Include="Assets\Script\EnemyHealthBar.cs" />
+     <Compile Include="Assets\Script\enemyMovement.cs" />
+     <Compile Include="Assets\Script\HealthBar.cs" />
+     <Compile Include="Assets\Script\menu.cs" />
+     <Compile Include="Assets\Script\Movement.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/Kuliah/Game/Final Project/pathfinder/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

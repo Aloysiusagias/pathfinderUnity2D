@@ -13,11 +13,16 @@ public class Movement : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
+    public int maxHealth = 100;
+    public int currentHealth;
+    public HealthBar healthhbar;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentHealth = maxHealth;
+        healthhbar.SetMaxHealth(maxHealth);
     }
 
     void Awake(){
@@ -35,6 +40,16 @@ public class Movement : MonoBehaviour
         horizontalMove = Input.GetAxisRaw("Horizontal");
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
         ResetValue();
+    }
+
+    private void OnTriggerEnter2D(Collider2D trig)
+    {
+        if (trig.gameObject.CompareTag("turn"))
+        {
+            currentHealth -= 20;
+            Debug.Log(currentHealth);
+            healthhbar.SetHealth(currentHealth);
+        }
     }
 
     private void HandleMovement(){
