@@ -47,9 +47,11 @@
   <ItemGroup>
      <Compile Include="Assets\Script\Billboard.cs" />
      <Compile Include="Assets\Script\camera.cs" />
+     <Compile Include="Assets\Script\Enemy_behaviour.cs" />
      <Compile Include="Assets\Script\EnemyHealthBar.cs" />
      <Compile Include="Assets\Script\enemyMovement.cs" />
      <Compile Include="Assets\Script\HealthBar.cs" />
+     <Compile Include="Assets\Script\hitBox_Enemy.cs" />
      <Compile Include="Assets\Script\menu.cs" />
      <Compile Include="Assets\Script\Movement.cs" />
  <Reference Include="Unity.Timeline.Editor">

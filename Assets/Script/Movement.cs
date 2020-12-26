@@ -33,7 +33,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
         HandleInput();
-        if(!this.animator.GetCurrentAnimatorStateInfo(0).IsTag("Attacks")){
+        if(!this.animator.GetCurrentAnimatorStateInfo(0).IsTag("Attacks") && !this.animator.GetCurrentAnimatorStateInfo(0).IsTag("Hurts")){
             HandleMovement();
         }
         HandleAttack();
@@ -66,12 +66,12 @@ public class Movement : MonoBehaviour
     }
 
     private void HandleAttack(){
-        if(attacking && !this.animator.GetCurrentAnimatorStateInfo(0).IsTag("Attacks")){
+        if(attacking && !this.animator.GetCurrentAnimatorStateInfo(0).IsTag("Attacks") && !this.animator.GetCurrentAnimatorStateInfo(0).IsTag("Hurts")){
             animator.SetTrigger("Attacks");
             rb.velocity = Vector2.zero;
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
             foreach(Collider2D enemy in hitEnemies){
-                enemy.GetComponent<enemyMovement>().TakeDamage(40);
+                enemy.GetComponent<Enemy_behaviour>().TakeDamage(40);
             }
         }
     }
@@ -91,5 +91,25 @@ public class Movement : MonoBehaviour
             return;
         }
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+    public void TakeDamage(int Damage)
+    {
+        currentHealth -= Damage;
+        Debug.Log(currentHealth);
+        healthhbar.SetHealth(currentHealth);
+        animator.SetTrigger("Hurt");
+        if(currentHealth <= 0){
+            die();
+        }
+    }
+
+    void die()
+    {
+        animator.SetBool("isDead", true);
+        // Debug.Log("Player Die");
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<Rigidbody2D>().gravityScale = 0;
+        this.enabled = false;
+        // EnemyHealth.SetActive(false);
     }
 }
