@@ -2923,12 +2923,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 921711189}
   attackPoint: {fileID: 1922450606}
-  attackRange: 1.57
+  attackRange: 0.48
   enemyLayers:
     serializedVersion: 2
     m_Bits: 256
   maxHealth: 100
-  currentHealth: 0
   healthhbar: {fileID: 920525602}
 --- !u!61 &921711193
 BoxCollider2D:

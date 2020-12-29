@@ -14,15 +14,14 @@ public class Movement : MonoBehaviour
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
     public int maxHealth = 100;
-    public int currentHealth;
+    static public int currentHealth = 100;
     public HealthBar healthhbar;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;
-        healthhbar.SetMaxHealth(maxHealth);
+        healthhbar.SetMaxHealth(maxHealth, currentHealth);
     }
 
     void Awake(){
