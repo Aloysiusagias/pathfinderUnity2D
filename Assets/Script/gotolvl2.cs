@@ -19,7 +19,15 @@ public class gotolvl2 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D trig)
     {
-        SceneManager.LoadScene(2);
-        Debug.Log("Masuk");
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            SceneManager.LoadScene(2);
+        } else if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            SceneManager.LoadScene(3);
+        } else if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            SceneManager.LoadScene(4);
+        }
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class menu : MonoBehaviour
 {
     public void OnPlay(){
-        SceneManager.LoadScene(1);
+       SceneManager.LoadScene(1);
     }
 
     public void OnQuit(){

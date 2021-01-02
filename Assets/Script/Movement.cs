@@ -16,6 +16,7 @@ public class Movement : MonoBehaviour
     public int maxHealth = 100;
     static public int currentHealth = 100;
     public HealthBar healthhbar;
+    public GameObject Retry,Quit;
     
 
     // Start is called before the first frame update
@@ -109,6 +110,9 @@ public class Movement : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         GetComponent<Rigidbody2D>().gravityScale = 0;
         this.enabled = false;
+        Retry.SetActive(true);
+        Quit.SetActive(true);
+
         // EnemyHealth.SetActive(false);
     }
 }
